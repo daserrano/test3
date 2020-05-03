@@ -102,7 +102,7 @@ public class WebDriverUtil {
             return new File(resource.getFile());
         }
 
-        return null;
+        return new File("");
     }
 
 }
