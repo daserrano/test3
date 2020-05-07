@@ -5,8 +5,16 @@ import com.mycorp.BrowserManagerEnum;
 import java.io.File;
 import java.net.URL;
 
+/**
+ * The type Web driver util.
+ */
 public class WebDriverUtil {
 
+    /**
+     * Conf property.
+     *
+     * @param browserManagerEnum the browser manager enum
+     */
     public static void confProperty(BrowserManagerEnum browserManagerEnum) {
         WebDriverUtil webDriverUtil = new WebDriverUtil();
         File file;

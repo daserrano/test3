@@ -11,8 +11,14 @@ import org.openqa.selenium.remote.Response;
 
 import java.util.Map;
 
+/**
+ * The enum Browser driver manager enum.
+ */
 public enum BrowserDriverManagerEnum {
 
+    /**
+     * The Chrome.
+     */
     CHROME {
         public WebDriver getDriver(DesiredCapabilities dc) {
             return new ChromeDriver(dc) {
@@ -28,6 +34,9 @@ public enum BrowserDriverManagerEnum {
             };
         }
     },
+    /**
+     * The Firefox.
+     */
     FIREFOX {
         public WebDriver getDriver(DesiredCapabilities dc) {
             return new FirefoxDriver(dc) {
@@ -44,6 +53,9 @@ public enum BrowserDriverManagerEnum {
             };
         }
     },
+    /**
+     * The Edge.
+     */
     EDGE {
         public WebDriver getDriver(DesiredCapabilities dc) {
             return new EdgeDriver(dc) {
@@ -59,6 +71,9 @@ public enum BrowserDriverManagerEnum {
             };
         }
     },
+    /**
+     * The Ie.
+     */
     IE {
         public WebDriver getDriver(DesiredCapabilities dc) {
             return new EdgeDriver(dc) {
@@ -74,6 +89,9 @@ public enum BrowserDriverManagerEnum {
             };
         }
     },
+    /**
+     * The Marionette.
+     */
     MARIONETTE {
         public WebDriver getDriver(DesiredCapabilities dc) {
             return new FirefoxDriver(dc) {
@@ -89,6 +107,9 @@ public enum BrowserDriverManagerEnum {
             };
         }
     },
+    /**
+     * The Opera.
+     */
     OPERA {
         public WebDriver getDriver(DesiredCapabilities dc) {
             return new ChromeDriver(dc) {
@@ -104,6 +125,9 @@ public enum BrowserDriverManagerEnum {
             };
         }
     },
+    /**
+     * The Phantomjs.
+     */
     PHANTOMJS {
         public WebDriver getDriver(DesiredCapabilities dc) {
             return new ChromeDriver(dc) {
@@ -119,6 +143,9 @@ public enum BrowserDriverManagerEnum {
             };
         }
     },
+    /**
+     * The None.
+     */
     NONE {
         public WebDriver getDriver(DesiredCapabilities dc) {
             return new RemoteWebDriver(dc) {
@@ -136,6 +163,12 @@ public enum BrowserDriverManagerEnum {
         }
     };
 
+    /**
+     * Gets driver.
+     *
+     * @param dc the dc
+     * @return the driver
+     */
     public abstract WebDriver getDriver(DesiredCapabilities dc);
 
 
