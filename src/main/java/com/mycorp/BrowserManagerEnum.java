@@ -1,6 +1,5 @@
 package com.mycorp;
 
-import com.mycorp.Utils.WebDriverUtil;
 import io.github.bonigarcia.wdm.*;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.Platform;
@@ -29,7 +28,7 @@ public enum BrowserManagerEnum {
 
     public static BrowserManagerEnum of(final String browserName) {
         final String lBrowserName = StringUtils.lowerCase(browserName);
-        BrowserManagerEnum res = null;
+        BrowserManagerEnum res;
         res = Stream.of(BrowserManagerEnum.values())
                 .filter(brow -> brow.browserName.equals(lBrowserName))
                 .findAny()
@@ -65,21 +64,8 @@ public enum BrowserManagerEnum {
 
     public WebDriver getDriver() {
         final DesiredCapabilities dc = new DesiredCapabilities(BrowserType.MOCK, "mock-version", Platform.ANY);
-        switch (this) {
-            case CHROME:
-            case OPERA:
-            case PHANTOMJS:
-                return WebDriverUtil.chromeDriver(dc);
-            case MARIONETTE:
-            case FIREFOX:
-                return WebDriverUtil.firefoxDriver(dc);
-            case EDGE:
-            case IE:
-                return WebDriverUtil.edgeDriver(dc);
-            case NONE:
-            default:
-                return WebDriverUtil.remoteWebDriver(dc);
-        }
+        return BrowserDriverManagerEnum.valueOf(this.name()).getDriver(dc);
+        //return WebDriverUtil.getBrowserDriver(this, dc);
     }
 
 }

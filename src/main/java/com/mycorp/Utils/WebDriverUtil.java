@@ -1,79 +1,11 @@
 package com.mycorp.Utils;
 
 import com.mycorp.BrowserManagerEnum;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.Response;
 
 import java.io.File;
 import java.net.URL;
-import java.util.Map;
 
 public class WebDriverUtil {
-
-    public static RemoteWebDriver chromeDriver(DesiredCapabilities dc) {
-        return new ChromeDriver(dc) {
-
-            @Override
-            protected Response execute(final String driverCommand, final Map<String, ?> parameters) {
-                return new Response();
-            }
-
-            @Override
-            protected void startSession(final Capabilities desiredCapabilities, final Capabilities requiredCapabilities) {
-                setSessionId("mock");
-            }
-        };
-    }
-
-    public static FirefoxDriver firefoxDriver(DesiredCapabilities dc) {
-        return new FirefoxDriver(dc) {
-
-            @Override
-            protected Response execute(final String driverCommand, final Map<String, ?> parameters) {
-                return new Response();
-            }
-
-            @Override
-            protected void startSession(final Capabilities desiredCapabilities, final Capabilities requiredCapabilities) {
-                setSessionId("mock");
-            }
-        };
-    }
-
-    public static RemoteWebDriver edgeDriver(DesiredCapabilities dc) {
-        return new EdgeDriver(dc) {
-
-            @Override
-            protected Response execute(final String driverCommand, final Map<String, ?> parameters) {
-                return new Response();
-            }
-
-            @Override
-            protected void startSession(final Capabilities desiredCapabilities, final Capabilities requiredCapabilities) {
-                setSessionId("mock");
-            }
-        };
-    }
-
-    public static RemoteWebDriver remoteWebDriver(DesiredCapabilities dc) {
-        return new RemoteWebDriver(dc) {
-
-            @Override
-            protected Response execute(final String driverCommand, final Map<String, ?> parameters) {
-                return new Response();
-            }
-
-            @Override
-            protected void startSession(final Capabilities desiredCapabilities, final Capabilities requiredCapabilities) {
-                setSessionId("mock");
-            }
-        };
-    }
 
     public static void confProperty(BrowserManagerEnum browserManagerEnum) {
         WebDriverUtil webDriverUtil = new WebDriverUtil();
